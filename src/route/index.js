@@ -71,7 +71,31 @@ router.get('/', function (req, res) {
   // ↑↑ сюди вводимо JSON дані
 })
 
-// ================================================================
+// ==========================================================
+
+router.get('/product-create', function (req, res) {
+  res.render('product-create', {
+    style: 'product-create',
+  })
+})
+
+// ==========================================================
+
+router.post('/product-create', function (req, res) {
+  const { name, price, description } = req.body
+
+  const product = new Product(name, price, description)
+
+  Product.add(product)
+
+  console.log(Product.getList())
+
+  res.render('product-create', {
+    style: 'product-create',
+  })
+})
+
+// ===========================================================
 
 // Підключаємо роутер до бек-енду
 module.exports = router
