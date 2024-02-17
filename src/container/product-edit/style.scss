@@ -5,6 +5,7 @@
   flex-direction: column;
   padding: s.space(16);
   gap: s.space(8);
+  
 
 
   &__title {
@@ -28,21 +29,20 @@
     border-radius: 10px;
     box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
     padding: s.space(6);
-    width: 70%;
-
+    // width: 70%;
   }
 
   &_fields {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     gap: s.space(6);
   }
 
-  &_field_position:nth-child(3) {
+  &_field_position:nth-child(4) {
     
     gap: s.space(2);
-    grid-column: span 2; 
+    grid-column: span 3; 
     
   }
 
@@ -69,6 +69,12 @@
     color: rgb(148, 135, 135);
   }
 
+  &__2buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: s.space(2);
+  }
+
   &__button {
     border: 1px solid s.color("light");
     padding: s.space(2);
@@ -77,7 +83,19 @@
     color: white;
     text-align: center;
     text-decoration: none;
-  }  
+  }
+
+  &__button__red {
+    border: 1px solid s.color("light");
+    padding: s.space(2);
+    border-radius: 4px;
+    background-color: red;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  
 }
 
 .main {
@@ -85,3 +103,4 @@
   flex-direction: column;
   gap: s.space(10);
 }
+

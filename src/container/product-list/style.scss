@@ -1,0 +1,80 @@
+@use '../../lib/service.scss' as s;
+
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: s.space(8);
+  padding: s.space(16);;
+}
+
+.list__title {
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom: s.space(2);
+  padding-left: s.space(4);
+  color: blue;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: s.space(1);
+
+  &-empty {
+    margin-left: s.space(4);
+    padding: s.space(1);
+  }
+}
+
+.product-card {
+  display: grid;
+  flex-wrap: wrap;
+  gap: s.space(4);
+  border: 1px solid s.color("light");
+  border-radius: 8px;
+  box-shadow: 0px 0px 5px 5px rgba(36, 34, 34, 0.1);
+  margin: s.space(1);;
+  padding: s.space(4);
+
+  &-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #363131;
+    margin-bottom: s.space(4);
+  }
+
+  &-description {
+    font-size: 16px;
+    color: #363131;
+    margin-bottom: s.space(4);
+  }
+
+  &-id {
+    font-size: 16px;
+    color: #7e7373;
+  }
+
+  &-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #363131;
+  }
+
+  &-edit {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(43, 141, 194);
+    text-decoration: none;
+  }
+
+}
+
+// Стильна сукня
+// Елегантна сукня з натуральної тканини для особливих випадків

@@ -2,6 +2,12 @@
 const express = require('express')
 // Cтворюємо роутер - місце, куди ми підключаємо ендпоїнти
 const router = express.Router()
+// const Handlebars = require('handlebars')
+
+const app = express()
+
+// Handlebars.registerPartial('myPartial', '{{partial}}')
+// Handlebars.registerPartial()
 
 // ================================================================
 
@@ -9,7 +15,7 @@ class Product {
   static #list = []
 
   constructor(name, price, description) {
-    this.id = Math.floor(Math.random() * 100000)
+    this.id = Math.floor(Math.random() * 90000 + 9999)
     this.createDate = new Date().toISOString()
     this.name = name
     this.price = price
@@ -18,31 +24,25 @@ class Product {
 
   static getList = () => this.#list
 
-  static add(product) {
-    if (product instanceof Product) {
-      this.#list.push(product)
-    }
+  static add = (product) => {
+    this.#list.push(product)
   }
 
   static getById = (id) =>
     this.#list.find((product) => product.id === id)
 
-  static updateById(id, data) {
+  static updateById = (id, data) => {
     const product = this.getById(id)
+
     if (product) {
-      this.update(use, data)
+      this.update(product, data)
       return true
     } else {
       return false
-
-      // product.name = data.name || product.name
-      // product.price = data.price || product.price
-      // product.description =
-      //   data.description || product.description
     }
   }
 
-  static deleteById(id) {
+  static deleteById = (id) => {
     const index = this.#list.findIndex(
       (product) => product.id === id,
     )
@@ -53,9 +53,15 @@ class Product {
       return false
     }
   }
+
+  static update = (product, { id }) => {
+    if (id) {
+      product.id = id
+    }
+  }
 }
 
-// ================================================================
+// ===========================================================
 
 // router.get Створює нам один ентпоїнт
 
@@ -84,18 +90,100 @@ router.get('/product-create', function (req, res) {
 router.post('/product-create', function (req, res) {
   const { name, price, description } = req.body
 
+  let result = false
+
   const product = new Product(name, price, description)
 
   Product.add(product)
 
   console.log(Product.getList())
 
-  res.render('product-create', {
-    style: 'product-create',
+  if (Product.getList(product)) {
+    result = true
+  }
+
+  res.render('alert', {
+    style: 'alert',
+    info: result
+      ? 'Товар успішно створений'
+      : 'Сталася помилка',
   })
 })
 
 // ===========================================================
 
+router.get('/product-list', function (req, res) {
+  const list = Product.getList()
+
+  res.render('product-list', {
+    style: 'product-list',
+
+    data: {
+      products: {
+        list,
+        isEmpty: list.length === 0,
+      },
+    },
+  })
+})
+
+// ===========================================================
+
+router.get('/product-edit', function (req, res) {
+  const { id } = req.query
+
+  const product = Product.getById(Number(id))
+
+  if (product) {
+    res.render('product-edit', {
+      style: 'product-edit',
+      product: product,
+    })
+  } else {
+    res.render('alert', {
+      style: 'alert',
+      info: 'Товар з таким ID не знайдено',
+    })
+  }
+})
+
+// ===========================================================
+
+router.post('/product-edit', function (req, res) {
+  const { name, price, description, id } = req.body
+
+  let product = Product.getById(Number(id))
+
+  if (product) {
+    product.updateById(id, { name, price, description })
+
+    res.render('alert', {
+      style: 'alert',
+      info: 'Товар успішно оновлено',
+    })
+  } else {
+    res.render('alert', {
+      style: 'alert',
+      info: 'Товар з таким ID не знайдено',
+    })
+  }
+})
+
+// ===========================================================
+
+router.get('/product-delete', function (req, res) {
+  const { id } = req.query
+
+  Product.deleteById(Number(id))
+
+  res.render('alert', {
+    style: 'alert',
+    info: 'Товар видалений',
+  })
+})
+
+// ===========================================================
+
+// app.set('view engine', 'handlebars')
 // Підключаємо роутер до бек-енду
 module.exports = router

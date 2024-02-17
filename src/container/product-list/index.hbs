@@ -1,0 +1,60 @@
+{{! 
+Це код container файлу для index сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
+ }}
+
+<main class='main'>
+
+  <h1 class='list__title'>Список товарів</h1>
+
+  <div>
+
+    <div>
+      {{#with data.products}}
+        {{#if isEmpty}}
+          <mark class='product-list-empty'>Товарів поки
+            немає</mark>
+        {{else}}
+          <div class='product-list'>
+
+            {{#each list}}
+
+              <div class='product-card'>
+                <div>
+                  <p class='product-card-name'>{{name}}</p>
+                  <p
+                    class='product-card-description'
+                  >{{description}}</p>
+                  <span class='product-card-id'>ID:
+                    {{id}}</span>
+                </div>
+
+                <div class='product-card-footer'>
+                  <p
+                    class='product-card-price'
+                  >{{price}}₴</p>
+                  <a
+                    class='product-card-edit'
+                    href='/product-edit?id={{id}}'
+                  >Редагувати</a>
+
+                </div>
+              </div>
+
+            {{/each}}
+
+            {{!-- {{> product-card}}  // Error: The partial product-card could not be found --}}
+
+          </div>
+        {{/if}}
+      {{/with}}
+    </div>
+
+  </div>
+
+</main>
+
+{{! 
+    Цей код містить лише те, що буде виводитись в <body>
+    Адже наш layout/default.hbs має вже структуру HTML
+}}
