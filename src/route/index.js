@@ -154,7 +154,7 @@ router.post('/product-edit', function (req, res) {
 
   let product = Product.getById(Number(id))
 
-  if (Product) {
+  if (product) {
     Product.updateById(id, { name, price, description })
 
     res.render('alert', {
