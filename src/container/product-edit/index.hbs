@@ -1,0 +1,98 @@
+{{! 
+Це код container файлу для index сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
+ }}
+
+<main class='main'>
+  <div class='form'>
+    <h1 class='form__title'>Редагування товару</h1>
+    <form method='POST' action='/product-edit'>
+
+      <div class='form__content'>
+        <h2 class='form__info_title'>Інформація про товар</h2>
+
+        <div class='form_fields'>
+
+          <div class='form_field_position'>
+            <div class='form_field'>
+              <label class='form__label'>Назва товару
+              </label>
+              <input
+                type='text'
+                id='name'
+                name='name'
+                class='form__input'
+                value='{{product.name}}'
+                required
+              />
+            </div>
+          </div>
+
+          <div class='form_field_position'>
+            <div class='form_field'>
+              <label class='form__label'>Ціна
+              </label>
+              <input
+                type='number'
+                id='price'
+                name='price'
+                class='form__input'
+                value='{{product.price}}'
+                required
+              />
+            </div>
+          </div>
+
+          <div class='form_field_position'>
+            <div class='form_field'>
+              <label class='form__label'>ID
+              </label>
+              <input
+                type='number'
+                id='id'
+                name='id'
+                class='form__input'
+                value='{{product.id}}'
+                required
+              />
+            </div>
+          </div>
+
+          <div class='form_field_position'>
+            <div class='form_field'>
+              <label class='form__label'>Короткий опис
+                товару
+              </label>
+              <input
+                type='text'
+                id='description'
+                name='description'
+                class='form__input'
+                value='{{product.description}}'
+                required
+              />
+              <p class='form__info'>Відображається в картці
+                товару</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class='form__2buttons'>
+          <button class='form__button'>Зберегти оновлення</button>
+          <a
+            href='/product-delete?id={{product.id}}'
+            class='form__button__red'
+          >Видалити товар</a>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+</main>
+
+{{! 
+    Цей код містить лише те, що буде виводитись в <body>
+    Адже наш layout/default.hbs має вже структуру HTML
+}}

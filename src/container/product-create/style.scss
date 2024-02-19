@@ -1,0 +1,87 @@
+@use '../../lib/service.scss' as s;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: s.space(16);
+  gap: s.space(8);
+
+
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: s.space(1);
+    color: blue;
+  }
+
+  &__info_title {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.5;
+  }
+
+  &__content {
+    display: grid;
+    flex-wrap: wrap;
+    gap: s.space(6);
+    border: 1px solid s.color("light");
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+    padding: s.space(6);
+    width: 70%;
+
+  }
+
+  &_fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: s.space(6);
+  }
+
+  &_field_position:nth-child(3) {
+    
+    gap: s.space(2);
+    grid-column: span 2; 
+    
+  }
+
+  &_field {
+    display: flex;
+    flex-direction: column;
+    gap: s.space(1);
+
+  }
+
+  &__label {
+    font-size: 15px;
+    color: rgb(148, 135, 135);
+  }
+
+  &__input {
+    border: 1px solid s.color("light");
+    border-radius: 4px;
+    padding: s.space(2);
+  }
+
+  &__info {
+    font-size: 14px;
+    color: rgb(148, 135, 135);
+  }
+
+  &__button {
+    border: 1px solid s.color("light");
+    padding: s.space(2);
+    border-radius: 4px;
+    background-color: blue;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+  }  
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: s.space(10);
+}
