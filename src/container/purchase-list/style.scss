@@ -1,0 +1,59 @@
+@use '../../lib/service.scss' as s;
+
+@use '../../component/heading/style.scss' as heading;
+@use '../../component/purchase-product/style.scss' as purchaseProduct;
+@use '../../component/field/style.scss' as field;
+@use '../../component/divider/style.scss' as divider;
+// так треба підключати scss-код компонентів
+
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: s.space(8);
+  padding: s.space(10);
+}
+
+.purchase-list {
+  margin-bottom: s.space(5);
+  margin-top: s.space(5);
+}
+
+.purchase-item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: s.space(5);
+  margin-bottom: s.space(5);
+  margin-top: s.space(5);
+}
+
+.purchase-item__name {
+  font-size: 16px;
+  font-weight: 400;
+  color: #808080;
+  margin-bottom: s.space(4);
+}
+
+.purchase-item__value {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+}
+
+
+.product-info__button {
+  background-color: s.color(main);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+

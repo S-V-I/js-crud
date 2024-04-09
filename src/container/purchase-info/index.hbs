@@ -1,0 +1,50 @@
+<main class='main'>
+  {{#with data}}
+    <div class='info-card'>
+
+      {{> heading title="Інформація про замовлення"}}
+ 
+      <div>Ім'я</div>
+      <div>{{purchase.firstname}}</div>
+
+      <div>Назва товару</div>
+      <div>{{product.title}}</div>
+
+      {{!-- {{> divider}} --}}
+
+      {{!-- {{> textblock label="Вартість товарів" value="productPrice"}}
+      {{> textblock label="Вартість доставки" value="deliveryPrice"}}
+      {{> textblock label="Сума до сплати" value="totalPrice"}}
+      {{> textblock label="Нараховані бонуси" value="bonus"}} --}}
+
+      {{!-- {{> divider}}
+
+      {{>button text="Змінити дані"}} --}}
+
+    </div>
+  {{/with}}
+</main>
+
+{{!-- <main class="main">
+  {{#with data}}
+    <div class="info-card">
+      {{> heading title="Інформація про замовлення"}}
+      {{> textblock label="ID" value="id"}}
+      {{> divider}}
+      {{> textblock label="Ім'я" value="firstname"}}
+      {{> textblock label="Прізвище" value="lastname"}}
+      {{> textblock label="Телефон" value="phone"}}
+      {{> textblock label="Електронна пошта" value="email"}}
+      {{> divider}}
+      {{> textblock label="Назва товару" value="productTitle"}}
+      {{> textblock label="Коментар" value="comment"}}
+      {{> divider}}
+      {{> textblock label="Вартість товарів" value="productPrice"}}
+      {{> textblock label="Вартість доставки" value="deliveryPrice"}}
+      {{> textblock label="Сума до сплати" value="totalPrice"}}
+      {{> textblock label="Нараховані бонуси" value="bonus"}}
+      {{> divider}}
+      {{>button text="Змінити дані"}}
+    </div>
+  {{/with}}
+</main> --}}
