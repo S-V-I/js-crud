@@ -2,7 +2,7 @@
 
 @use '../../component/heading/style.scss' as heading;
 @use '../../component/purchase-product/style.scss' as purchaseProduct;
-@use '../../component/textblock/style.scss' as textblock;
+@use '../../component/field/style.scss' as field;
 @use '../../component/divider/style.scss' as divider;
 @use '../../component/button/style.scss' as button;
 // так треба підключати scss-код компонентів
@@ -15,7 +15,7 @@
   padding: s.space(10);
 }
 
-.info-card {
+.form-card {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -25,9 +25,27 @@
   border-radius: 10px;
 }
 
-.purchase-info__block {
+.purchase-update__form {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: s.space(4);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: s.space(1);
+  width: 100%;
+}
+
+.field__label {
+  font-size: 14px;
+}
+
+.field__input {
+  border: 1px solid s.color(light);
+  padding: s.space(2);
+  border-radius: 10px;
 }
 
 .purchase-info__label {
@@ -40,19 +58,4 @@
   font-size: 16px;
   color: #000000;
   margin-bottom: s.space(5);
-}
-
-.button {
-  background-color: s.color(main);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-
-  &:hover {
-    opacity: 0.7;
-  }
 }

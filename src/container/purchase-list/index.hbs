@@ -1,59 +1,29 @@
 <main class='main'>
   {{> heading title="Мої замовлення"}}
 
-  {{!-- <div class='purchase-list'>
-
-    <div class='purchase-item'>
-      <div class='purchase-item__name'>ID: 14587</div>
-      <div>
-        <div class='purchase-item__name'>Товари:</div>
-        <div class='purchase-item__value'>Футбольний м'яч</div>
-      </div>
-      <div>
-        <div class='purchase-item__name'>Сума замовлення:</div>
-        <div class='purchase-item__value'>1 260,75₴</div>
-      </div>
-      <div>
-        <div class='purchase-item__name'>Нараховано бонусів:</div>
-        <div class='purchase-item__value'>12,60₴</div>
-      </div>
-    </div>
-
-    {{> divider}}
-
-    <div class='purchase-item'>
-      <div class='purchase-item__name'>ID: 14602</div>
-      <div>
-        <div class='purchase-item__name'>Товари:</div>
-        <div class='purchase-item__value'>Смартфон Xiaomi
-          Redmi Note 10</div>
-      </div>
-      <div>
-        <div class='purchase-item__name'>Сума замовлення:</div>
-        <div class='purchase-item__value'>5 599.00₴</div>
-      </div>
-      <div>
-        <div class='purchase-item__name'>Нараховано бонусів:</div>
-        <div class='purchase-item__value'>55.99₴</div>
-      </div>
-    </div>
-
-    {{> divider}}
-
-  </div> --}}
-
-  {{#with data.list}}
-    <div method="POST" action='/purchase-info?id={{id}}'>
+  {{#each data.list}}
+    <a class="block" href="/purchase-info?id={{id}}" method="POST" action='/purchase-info?id={{id}}'>
       <div class='purchase-list'>
-        <p>{{id}}</p>
-        <p>{{Product.title}}</p>
-        <p>{{totalPrice}}</p>
-        <p>{{bonus}}</p>
+        <div class='purchase-item'>
+          <div class='purchase-item__name'>ID: {{id}}</div>
+          <div>
+            <div class='purchase-item__name'>Товари:</div>
+            <div class='purchase-item__value'>{{product.title}}</div>
+          </div>
+          <div>
+            <div class='purchase-item__name'>Сума замовлення:</div>
+            <div class='purchase-item__value'>{{totalPrice}}₴</div>
+          </div>
+          <div>
+            <div class='purchase-item__name'>Нараховано бонусів:</div>
+            <div class='purchase-item__value'>{{bonus}}₴</div>
+          </div>
+        </div>
 
         {{> divider}}
 
       </div>
-    </div>
-  {{/with}}
-
+    </a>
+  {{/each}} 
+  
 </main>

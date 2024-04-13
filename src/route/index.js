@@ -155,9 +155,7 @@ class Purchase {
   }
 
   static getList = () => {
-    return this.#list
-
-    console.log(list)
+    return this.#list.reverse()
   }
 
   static getById = (id) => {
@@ -470,7 +468,27 @@ router.get('/purchase-info', function (req, res) {
   })
 })
 
+router.get('/purchase-update', function (req, res) {
+  const id = Number(req.query.id)
+
+  res.render('purchase-update', {
+    style: 'purchase-update',
+
+    data: {
+      purchase: Purchase.getById(id),
+    },
+  })
+
+  res.render('alert', {
+    style: 'alert',
+
+    data: {
+      message: 'Успішно',
+      info: 'Дані оновлено',
+      link: '/purchase-list',
+    },
+  })
+})
+
 // Підключаємо роутер до бек-енду
 module.exports = router
-
-//.map(({...}) => {...})

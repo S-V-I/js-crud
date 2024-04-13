@@ -1,0 +1,37 @@
+<main class='main'>
+  {{#with data.purchase}}
+    <form class="form-card">
+      {{> heading title="Зміна даних"}}
+
+      <div> 
+        <div class="purchase-update__label">ID:</div>
+        <div class="purchase-update__value">{{id}}</div>
+      </div>
+
+      <div class="purchase-update__form">
+        <div class="field">
+          <label for="Прізвище" class="field__label">Прізвище:</label>
+          <input value="{{lastname}}" name="Прізвище" class="field__input">
+        </div>
+        <div class="field">
+          <label for="Ім'я" class="field__label">Ім'я:</label>
+          <input value="{{firstname}}" name="Ім'я" class="field__input">
+        </div>
+      </div>
+
+      <div class="purchase-update__form">
+        <div class="field">
+          <label for="Електронна пошта" class="field__label">Електронна пошта:</label>
+          <input value="{{email}}" name="Електронна пошта" class="field__input">
+        </div>
+        <div class="field">
+          <label for="Телефон" class="field__label">Телефон:</label>
+          <input value="{{phone}}" name="Телефон" class="field__input">
+        </div>
+      </div>
+
+      {{>button text="Зберегти зміни"}}
+
+    </form>
+  {{/with}}
+</main>

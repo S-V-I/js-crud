@@ -41,19 +41,16 @@
   color: #000000;
 }
 
-
-.product-info__button {
-  background-color: s.color(main);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
+.block {
+  display: block;
+  text-decoration:none;
   cursor: pointer;
   transition: opacity 0.3s ease;
 
   &:hover {
     opacity: 0.7;
+    border:1px solid gray;
+    border-radius: 10px;
   }
 }
 
