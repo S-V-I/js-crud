@@ -479,7 +479,7 @@ router.get('/purchase-update', function (req, res) {
     },
   })
 
-  res.render('alert', {
+  return res.render('alert', {
     style: 'alert',
 
     data: {
