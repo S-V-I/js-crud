@@ -15,6 +15,8 @@ router.get('/', function (req, res) {
   res.render('index', {
     // вказуємо назву папки контейнера, в якій знаходяться наші стилі
     style: 'index',
+
+    data: {},
   })
   // ↑↑ сюди вводимо JSON дані
 })
