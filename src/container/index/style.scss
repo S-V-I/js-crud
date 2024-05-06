@@ -1,0 +1,26 @@
+@use '../../lib/service.scss' as s;
+
+@use '../../lib/spotify.scss' as spotify;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  &__icons {
+    gap: s.space(4);
+    display: flex;
+    justify-content: space-between;
+
+  }
+}
+
+.playlist__display {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: s.space(5);
+}
+
+.playlist__name {
+  margin-top: s.space(2);
+  margin-bottom: s.space(2);
+}

@@ -1,0 +1,12 @@
+@use '../../lib/service.scss' as s;
+
+@use '../../lib/spotify.scss' as spotify;
+
+.form__button {
+  transition: opacity 0.6s;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+

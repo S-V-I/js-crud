@@ -82,25 +82,4 @@ a:hover {
   color: #BDBDBD;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-}
-.header__icons {
-  gap: 16px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.playlist__display {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.playlist__name {
-  margin-top: 8px;
-  margin-bottom: 8px;
-}
-
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=spotify.css.map */

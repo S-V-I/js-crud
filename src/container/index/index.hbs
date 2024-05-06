@@ -3,9 +3,40 @@
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
  }}
 
-<div >
-  Hello world!
-</div>
+<main class='main'>
+
+  <div class='main__content'>
+    <header class='header'>
+      <h1 class='title'>Моя бібліотека</h1>
+      <div class='header__icons'>
+        <a href='/spotify-search'>
+          <img src='/svg/index_search_button.svg' />
+        </a>
+        <a href='/spotify-choose'>
+          <img src='/svg/index_choose_button.svg' />
+        </a>
+      </div>
+    </header>
+
+    <div class='playlist__display'>
+      {{#with data}}
+        {{#each list}}
+          <div class='playlist__card'>
+            <img
+              src='{{image}}'
+              alt='{{name}}'
+              height='280px'
+            />
+            <div class='playlist__name'>{{name}}</div>
+            <span class='playlist__amount'>{{tracks.length}}
+              пісень</span>
+          </div>
+        {{/each}}
+      {{/with}}
+    </div>
+  </div>
+
+</main>
 
 {{! 
     Цей код містить лише те, що буде виводитись в <body>
