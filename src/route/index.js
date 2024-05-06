@@ -342,10 +342,10 @@ router.post('/spotify-track-add', function (req, res) {
   const trackId = Number(req.query.trackId)
 
   const playlist = Playlist.getById(playlistId)
-  const track = playlist.addTrack(playlistId, trackId)
+  const track = Track.getById(trackId)
 
-  Track.getById(trackId)
-  playlist.push(track)
+  playlist.tracks.push(track)
+  // playlist.tracks.addTrack(playlist, track)
 
   res.render('spotify-playlist', {
     style: 'spotify-playlist',
